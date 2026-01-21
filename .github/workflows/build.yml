@@ -23,7 +23,7 @@ jobs:
     - name: Build EXE with PyInstaller
       run: |
         # This is the command line version of auto-py-to-exe
-        pyinstaller --noconfirm --onefile --windowed --collect-all customtkinter --name "DigitalSentinel" main.py
+        pyinstaller --noconfirm --onefile --windowed --collect-all customtkinter --icon "X-Theme.ico" --name "FOfemApps" X-Theme.py
 
     - name: Upload Result
       uses: actions/upload-artifact@v3
