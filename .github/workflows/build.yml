@@ -1,4 +1,4 @@
-name: Build ForraApps.EXE
+name: Build ForraApps EXE
 
 on:
   push:
@@ -9,10 +9,11 @@ jobs:
     runs-on: windows-latest  # Use a real Windows server
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout Code
+      uses: actions/checkout@v4
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '3.10'
 
@@ -22,11 +23,11 @@ jobs:
 
     - name: Build EXE with PyInstaller
       run: |
-        # This is the command line version of auto-py-to-exe
-        pyinstaller --noconfirm --onefile --windowed --collect-all customtkinter --icon "X-Theme.ico" --name "FOfemApps" X-Theme.py
+        # This is the command line version of auto-py-to-exe and it point directly to the Clock.py and X-Themes icon
+        pyinstaller --noconfirm --onefile --windowed --collect-all customtkinter --icon "X-Theme.ico" --name "X-Theme" Clock.py
 
     - name: Upload Result
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: Sentinel-Windows-Executable
         path: dist/DigitalSentinel.exe
