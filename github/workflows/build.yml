@@ -1,4 +1,4 @@
-name: Build ForraCorp Apps EXE
+name: Build ForraApps.EXE
 
 on:
   push:
