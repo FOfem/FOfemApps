@@ -21,13 +21,19 @@ jobs:
       run: |
         pip install customtkinter pillow pyinstaller
 
+    - name: Debug - List Files
+      run: dir   #This lets us see if Clock.py is actually there
+
     - name: Build EXE with PyInstaller
       run: |
         # This is the command line version of auto-py-to-exe and it point directly to the Clock.py and X-Themes icon
-        pyinstaller --noconfirm --onefile --windowed --collect-all customtkinter --icon "X-Theme.ico" --name "X-Theme" Clock.py
+        pyinstaller --noconfirm --onefile --windowed --collect-all customtkinter --icon "X-Theme.ico" --name "X-Theme" Clock.py --log-level DEBUG
 
     - name: Upload Result
       uses: actions/upload-artifact@v4
       with:
         name: Sentinel-Windows-Executable
         path: dist/DigitalSentinel.exe
+        if-no-files-found: error 
+        # This will tell us specifically if its's missing.
+        
