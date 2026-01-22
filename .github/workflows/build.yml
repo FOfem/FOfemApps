@@ -33,7 +33,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: Sentinel-Windows-Executable
-        path: dist/DigitalSentinel.exe
+        path: dist/X-Theme.exe
         if-no-files-found: error 
         # This will tell us specifically if its's missing.
         
